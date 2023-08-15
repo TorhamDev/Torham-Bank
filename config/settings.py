@@ -29,6 +29,11 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
+LOCAL_APPS = [
+    "bank.api.apps.ApiConfig",
+]
+
+THIRD_PARTY_APPS = []
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -37,6 +42,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    *THIRD_PARTY_APPS,
+    *LOCAL_APPS,
 ]
 
 MIDDLEWARE = [
