@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 # Application definition
 LOCAL_APPS = [
     "bank.api.apps.ApiConfig",
+    "bank.user.apps.UserConfig",
 ]
 
 THIRD_PARTY_APPS = []
@@ -108,6 +109,8 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+
+AUTH_USER_MODEL = "user.Accounts"
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
