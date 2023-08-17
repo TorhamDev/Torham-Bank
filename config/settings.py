@@ -36,7 +36,9 @@ LOCAL_APPS = [
     "bank.user.apps.UserConfig",
 ]
 
-THIRD_PARTY_APPS = []
+THIRD_PARTY_APPS = [
+    "rest_framework",
+]
 
 INSTALLED_APPS = [
     "django.contrib.admin",
