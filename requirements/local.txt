@@ -1,0 +1,4 @@
+-r ./base.txt
+
+black==23.7.0
+mypy-extensions==1.0.0
