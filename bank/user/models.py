@@ -26,7 +26,7 @@ class Accounts(BaseModel, AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(unique=True)
     details = models.ForeignKey(to=AccountsDetail, on_delete=models.CASCADE)
     account_types_code = models.ForeignKey(to=AccountsType, on_delete=models.CASCADE)
-    # account_wallet = ...
+    # account_wallet = ... #TODO : create wallet for users
 
     objects = UserManager()
 
