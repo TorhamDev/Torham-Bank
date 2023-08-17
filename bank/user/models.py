@@ -8,11 +8,6 @@ from bank.user.manager import UserManager
 from bank.utils.models import BaseModel
 
 
-class AccountsType(BaseModel):
-    accounts_types_code = models.CharField(primary_key=True, max_length=10)
-    accounts_types_description = models.TextField()
-
-
 class AccountsDetail(BaseModel):
     name = models.CharField(max_length=100)
     age = models.IntegerField()
@@ -25,7 +20,6 @@ class Accounts(BaseModel, AbstractBaseUser, PermissionsMixin):
     account_name = models.CharField(max_length=100)
     email = models.EmailField(unique=True)
     details = models.ForeignKey(to=AccountsDetail, on_delete=models.CASCADE)
-    account_types_code = models.ForeignKey(to=AccountsType, on_delete=models.CASCADE)
     # account_wallet = ... #TODO : create wallet for users
 
     objects = UserManager()
