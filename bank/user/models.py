@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import PermissionsMixin, Group
+from django.contrib.auth.models import PermissionsMixin
 from django.contrib.auth.base_user import AbstractBaseUser
 from django.utils.translation import gettext_lazy as _
 from typing import Any
@@ -15,11 +15,16 @@ class AccountsDetail(BaseModel):
     last_login = models.DateTimeField(null=True, blank=True)
     description = models.TextField()
 
+    def __str__(self) -> str:
+        return f"{self.name} - {self.phone_number}"
+
 
 class Accounts(BaseModel, AbstractBaseUser, PermissionsMixin):
     account_name = models.CharField(max_length=100)
     email = models.EmailField(unique=True)
-    details = models.ForeignKey(to=AccountsDetail, on_delete=models.CASCADE, null=True, blank=True)
+    details = models.ForeignKey(
+        to=AccountsDetail, on_delete=models.CASCADE, null=True, blank=True
+    )
     # account_wallet = ... #TODO : create wallet for users
 
     is_active = models.BooleanField(_("active"), default=True)
@@ -32,3 +37,6 @@ class Accounts(BaseModel, AbstractBaseUser, PermissionsMixin):
     class Meta:
         verbose_name = _("Account")
         verbose_name_plural = _("Accounts")
+
+    def __str__(self) -> str:
+        return f"{self.account_name=} - {self.email}"
