@@ -19,7 +19,7 @@ class AccountsDetail(BaseModel):
 class Accounts(BaseModel, AbstractBaseUser, PermissionsMixin):
     account_name = models.CharField(max_length=100)
     email = models.EmailField(unique=True)
-    details = models.ForeignKey(to=AccountsDetail, on_delete=models.CASCADE, null=True)
+    details = models.ForeignKey(to=AccountsDetail, on_delete=models.CASCADE, null=True, blank=True)
     # account_wallet = ... #TODO : create wallet for users
 
     is_active = models.BooleanField(_("active"), default=True)
