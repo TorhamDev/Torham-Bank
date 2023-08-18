@@ -22,6 +22,8 @@ class Accounts(BaseModel, AbstractBaseUser, PermissionsMixin):
     details = models.ForeignKey(to=AccountsDetail, on_delete=models.CASCADE)
     # account_wallet = ... #TODO : create wallet for users
 
+    is_active = models.BooleanField(_("active"), default=True)
+    is_staff = models.BooleanField(_("is staff"), default=False)
     objects = UserManager()
 
     USERNAME_FIELD = "email"
