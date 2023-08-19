@@ -23,7 +23,8 @@ class Accounts(BaseModel, AbstractBaseUser, PermissionsMixin):
     account_name = models.CharField(max_length=100)
     email = models.EmailField(unique=True)
     details = models.ForeignKey(
-        to=AccountsDetail, on_delete=models.CASCADE, null=True, blank=True
+        to=AccountsDetail, on_delete=models.CASCADE, null=True, blank=True,
+        related_name="account"
     )
     # account_wallet = ... #TODO : create wallet for users
 
@@ -39,4 +40,4 @@ class Accounts(BaseModel, AbstractBaseUser, PermissionsMixin):
         verbose_name_plural = _("Accounts")
 
     def __str__(self) -> str:
-        return f"{self.account_name=} - {self.email}"
+        return f"{self.account_name} - {self.email}"
