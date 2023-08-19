@@ -26,7 +26,7 @@ class Accounts(BaseModel, AbstractBaseUser, PermissionsMixin):
         to=AccountsDetail, on_delete=models.CASCADE, null=True, blank=True,
         related_name="account"
     )
-    # account_wallet = ... #TODO : create wallet for users
+    balance = models.FloatField(default=0.0)
 
     is_active = models.BooleanField(_("active"), default=True)
     is_staff = models.BooleanField(_("is staff"), default=False)

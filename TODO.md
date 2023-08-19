@@ -7,4 +7,4 @@
 - [ ] add inline for account details in account page in admin panel
 - [X] create register API
 - [ ] create auth API
-- [ ] Create wallet model for users
+- [X] Create wallet model for users
