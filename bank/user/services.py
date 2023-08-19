@@ -14,6 +14,7 @@ def create_account(register_info: RegisterInformation) -> Accounts:
         account_name=register_info.account_name,
         email=register_info.email,
         details=account_detail,
+        balance=register_info.balance,
     )
 
     return account
