@@ -23,8 +23,11 @@ class Accounts(BaseModel, AbstractBaseUser, PermissionsMixin):
     account_name = models.CharField(max_length=100)
     email = models.EmailField(unique=True)
     details = models.ForeignKey(
-        to=AccountsDetail, on_delete=models.CASCADE, null=True, blank=True,
-        related_name="account"
+        to=AccountsDetail,
+        on_delete=models.CASCADE,
+        null=True,
+        blank=True,
+        related_name="account",
     )
     balance = models.FloatField(default=0.0)
 
