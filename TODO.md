@@ -8,3 +8,4 @@
 - [X] create register API
 - [ ] create auth API
 - [X] Create wallet model for users
+- [ ] Save user password in register
